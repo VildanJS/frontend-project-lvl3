@@ -6,12 +6,12 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
-    })
+    }),
   ],
   module: {
     rules: [
@@ -19,9 +19,9 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  }
-}
+          'css-loader',
+        ],
+      },
+    ],
+  },
+};
