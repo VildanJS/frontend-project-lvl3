@@ -16,6 +16,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        options: {
+          presets: ['babel/preset-env']
+        }
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader',
