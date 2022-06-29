@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   testEnvironmentOptions: {
-    url: 'http://localhost/'
+    url: 'http://localhost/',
   },
   verbose: true,
 };
