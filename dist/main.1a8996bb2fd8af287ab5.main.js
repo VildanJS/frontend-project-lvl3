@@ -1,0 +1,1 @@
+(()=>{"use strict";document.body.innerHTML="<div>".concat("".concat(17),"</div>")})();
