@@ -2,7 +2,8 @@ export type Mode = 'production' | 'development'
 export interface Paths {
     entry: string,
     output: string,
-    html: string
+    html: string,
+    src: string
 }
 export interface ConfigOptions {
     mode: Mode,

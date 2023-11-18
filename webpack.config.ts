@@ -1,11 +1,7 @@
 import path from 'path'
-import { Configuration } from 'webpack'
+import { type Configuration } from 'webpack'
 import { buildWebpackConfig } from "./config/webpack/buildWebpackConfig";
-import {ConfigOptions, EnvOptions} from "./config/webpack/types/ConfigOptions";
-
-
-
-
+import {type ConfigOptions, type EnvOptions} from "./config/webpack/types/ConfigOptions";
 
 export default (env: EnvOptions): Configuration => {
     const options: ConfigOptions = {
@@ -14,10 +10,11 @@ export default (env: EnvOptions): Configuration => {
             entry: path.resolve(__dirname, 'src', 'index.ts'),
             output: path.resolve(__dirname, 'dist'),
             html: path.resolve(__dirname, 'public', 'index.html'),
+            src: path.join(__dirname, 'src'),
         },
         port: env.port || 3000,
         isOpen: true
     }
-    
+
     return buildWebpackConfig(options)
 }

@@ -1,0 +1,33 @@
+{
+  "translation": {
+    "buttons": {
+      "add": "Добавить",
+      "read": "Просмотр",
+      "close": "Закрыть"
+    },
+    "text": {
+      "head": "RSS агрегатор",
+      "description": "Начните читать RSS сегодня! Это легко, это красиво.",
+      "example": "Пример: https://ru.hexlet.io/lessons.rss",
+      "placeholder": "Ссылка RSS"
+    },
+    "validationErrors": {
+      "urlValidError": "Ссылка должна быть валидным URL",
+      "empty": "Не должно быть пустым",
+      "duplicate": "RSS уже существует",
+      "noError": ""
+    },
+    "networkErrors": {
+      "successful": "RSS успешно загружен",
+      "invalidRss": "Ресурс не содержит валидный RSS",
+      "networkErr": "Ошибка сети",
+      "pending": "Загрузка...",
+      "noError": ""
+    },
+    "feeds": "Фиды",
+    "posts": "Посты",
+    "copyrightLink": "https://ru.hexlet.io/u/vildanjs",
+    "copyright": "Created by <a target='_blank' href=$t(copyrightLink)>{{name}}</a>",
+    "validError": "Ссылка должна быть валидным URL"
+  }
+}

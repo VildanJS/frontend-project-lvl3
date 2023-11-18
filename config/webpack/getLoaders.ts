@@ -1,10 +1,10 @@
-import {RuleSetRule} from "webpack";
+import {type RuleSetRule} from "webpack";
 import autoprefixer from "autoprefixer";
 
 export const getLoaders = (): RuleSetRule[] => {
     const typeScriptLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: 'babel-loader',
         exclude: /node_modules/,
     }
     const styleLoader = {

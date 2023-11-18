@@ -1,0 +1,23 @@
+{
+  "translation": {
+    "buttons": {
+      "add": "Add",
+      "read": "Read",
+      "close": "Close"
+    },
+    "text": {
+      "head": "RSS aggregator",
+      "description": "Start reading RSS today! It's easy, it's beautiful.",
+      "example": "Example: https://ru.hexlet.io/lessons.rss",
+      "placeholder": "Link RSS"
+    },
+    "errors": {
+      "validError": "The link must be a valid URL",
+      "noError": ""
+    },
+    "feeds": "Feeds",
+    "posts": "Posts",
+    "copyrightLink": "https://ru.hexlet.io/u/vildanjs",
+    "copyright": "Create by <a target='_blank' href=$t(copyrightLink)>{{name}}</a>"
+  }
+}

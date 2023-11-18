@@ -1,5 +1,5 @@
-import { ConfigOptions } from "./types/ConfigOptions";
-import { Configuration } from "webpack";
+import { type ConfigOptions } from "./types/ConfigOptions";
+import { type Configuration } from "webpack";
 import { getLoaders } from "./getLoaders";
 import { getResolve } from "./getResolve";
 import { getPlugins } from "./getPlugins";
@@ -15,12 +15,13 @@ export const buildWebpackConfig = (options: ConfigOptions): Configuration => {
         output: {
             filename: '[name].[contenthash].main.js',
             path: paths.output,
-            clean: true
+            clean: isDev && true,
+            publicPath: '/'
         },
         module: {
             rules: getLoaders()
         },
-        resolve: getResolve(),
+        resolve: getResolve(paths.src),
         plugins: getPlugins(paths.html),
         devServer: isDev ? getDevServerConfig(port, isOpen) : undefined,
         devtool: isDev ? 'inline-source-map' : undefined,
