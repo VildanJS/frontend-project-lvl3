@@ -1,4 +1,3 @@
-// eslint-disable-next-line fp/no-mutation
 module.exports = function makeBabelConfig(api) {
   api.cache(true);
 
