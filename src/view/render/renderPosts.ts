@@ -29,7 +29,7 @@ export const renderPosts = (posts: Post[], i18n: i18n, state: State): void => {
         )
 
         const linkElement = document.createElement('a')
-        listElement.classList.add('fw-bold')
+        linkElement.classList.add('fw-bold')
         linkElement.href = link ?? ''
         linkElement.setAttribute('data-id', id ?? '')
         linkElement.setAttribute('target', '_blank')
@@ -43,7 +43,7 @@ export const renderPosts = (posts: Post[], i18n: i18n, state: State): void => {
 
         const buttonElement = document.createElement('button')
         buttonElement.type = 'button'
-        buttonElement.classList.add('btn', 'btn-outline-primary', 'btn-sm', 'fw-bold')
+        buttonElement.classList.add('btn', 'btn-outline-primary', 'btn-sm')
         buttonElement.textContent = i18n.t('buttons.read')
         buttonElement.setAttribute('data-id', id ?? '')
         buttonElement.setAttribute('data-bs-toggle', 'modal')
