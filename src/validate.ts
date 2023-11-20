@@ -1,5 +1,4 @@
 import * as yup from 'yup'
-import { ValidationErrors } from '@/view/render/updateContent'
 
 export const validate = (text: string, urls: string[]): Promise<string> => {
   yup.setLocale({
