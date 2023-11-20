@@ -1,6 +1,5 @@
 import type ru from '@/locales/ru.json'
 
-
 type UnionToIntersection<U> = (
     U extends unknown ? (k: U) => void : never
 ) extends (k: infer I) => void
@@ -20,7 +19,7 @@ export type TranslationKey = RecursiveKeyOf<FlattenTypedKey>
 export type ValidationErrors =
     `validationErrors${typeof keySeparator}${keyof typeof ru.translation.validationErrors}`
 export type NetworkErrors =
-  `networkErrors${typeof keySeparator}${keyof typeof ru.translation.networkErrors}`
+    `networkErrors${typeof keySeparator}${keyof typeof ru.translation.networkErrors}`
 
 export function updateContent(
     t: any,

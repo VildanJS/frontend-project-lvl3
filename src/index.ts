@@ -1,15 +1,16 @@
 import './scss/styles.scss'
 import 'bootstrap'
 
+import axios, { isAxiosError } from 'axios'
 import i18next, { type i18n } from 'i18next'
-import { getUrlThroughProxy } from '@/utils/proxy'
-import { type State } from 'types'
-import { createState } from '@/view'
 import ru from '@/locales/ru.json'
 import en from '@/locales/en.json'
+import { type State } from 'types'
+
+import { getUrlThroughProxy } from '@/utils/proxy'
+import { createState } from '@/view'
 import { sendRequestWithTimeout } from '@/utils/sendRequestWithTimeout'
-import { validate } from 'validate'
-import axios, { isAxiosError } from 'axios'
+import { validate } from '@/validate'
 import { parser } from '@/utils/parser'
 import { updateContent } from '@/view/render/updateContent'
 
@@ -22,8 +23,11 @@ const app = (i18n: i18n): void => {
             elements: {
                 form: {
                     root: document.querySelector<HTMLFormElement>('.rss-form'),
-                    input: document.querySelector<HTMLInputElement>('#url-input'),
-                    addButton: document.querySelector<HTMLButtonElement>('#add'),
+                    input: document.querySelector<HTMLInputElement>(
+                        '#url-input',
+                    ),
+                    addButton:
+                        document.querySelector<HTMLButtonElement>('#add'),
                 },
                 feedback: document.querySelector('.feedback'),
                 posts: document.querySelector('.posts'),
@@ -39,7 +43,7 @@ const app = (i18n: i18n): void => {
             feedback: 'validationErrors.noError',
             form: {
                 isSubmitting: false,
-                isValid: true
+                isValid: true,
             },
             lng: 'ru',
         },
@@ -50,7 +54,7 @@ const app = (i18n: i18n): void => {
 
     updateContent(i18n.t, i18nElements)
 
-    const {root: form, input} = initialState.ui.elements.form
+    const { root: form, input } = initialState.ui.elements.form
     input?.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement
         validate(target.value, state.urls)
@@ -82,7 +86,6 @@ const app = (i18n: i18n): void => {
                     state.feeds.unshift(feed)
                     state.posts.unshift(...posts)
 
-
                     state.urls.forEach((url) => {
                         sendRequestWithTimeout(
                             getUrlThroughProxy(url),
@@ -96,7 +99,9 @@ const app = (i18n: i18n): void => {
                 })
                 .catch((err) => {
                     state.ui.form.isSubmitting = false
-                    state.ui.feedback = isAxiosError(err) ? 'networkErrors.networkErr' : err.message
+                    state.ui.feedback = isAxiosError(err)
+                        ? 'networkErrors.networkErr'
+                        : err.message
                 })
         }
     })
@@ -124,7 +129,5 @@ const runApp = (): void => {
         })
         .catch((err) => err)
 }
-
-
 
 runApp()
