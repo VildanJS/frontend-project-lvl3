@@ -1,4 +1,6 @@
 import type ru from '@/locales/ru.json'
+import { type Namespace } from 'i18next/typescript/options'
+import { type TFunction } from 'i18next'
 
 type UnionToIntersection<U> = (
     U extends unknown ? (k: U) => void : never
@@ -22,7 +24,7 @@ export type NetworkErrors =
     `networkErrors${typeof keySeparator}${keyof typeof ru.translation.networkErrors}`
 
 export function updateContent(
-    t: any,
+    t: TFunction<Namespace, undefined>,
     elements: NodeListOf<Element> | null,
 ): void {
     const NAME = 'VildanJS'
