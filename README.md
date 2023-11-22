@@ -20,7 +20,7 @@ RSS aggregator - is a service for aggregating RSS feeds, with the help of which 
 * [Rt](https://rt.com/rss/news)
 * [BBC Top Stories](http://feeds.bbci.co.uk/news/rss.xml)
 
-### RSS aggregator on Vercel: [Rss agregator](https://frontend-project-lvl3-g4efoxtbz-vildanjs.vercel.app/)
+### RSS aggregator on Vercel: [Rss agregator](https://frontend-project-lvl3-vildanjs.vercel.app/)
 ### Feeds are updated automatically
 
 ## You can run the application locally, for this:
