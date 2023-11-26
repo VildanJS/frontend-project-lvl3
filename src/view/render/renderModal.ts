@@ -1,8 +1,8 @@
-import { type Post } from '@/utils/parser'
-import { type State } from '@/types'
+import { type Post } from 'utils/parseXmlData'
+import { type Elements } from '@/types'
 
-export const renderModal = (post: Post, state: State): void => {
-  const {link: modalLink, body: modalBody, title: modalTitle} = state.ui.elements.modal
+export const renderModal = (post: Post, elements: Elements): void => {
+  const {link: modalLink, body: modalBody, title: modalTitle} = elements.modal
 
   if(modalLink == null || modalBody == null || modalTitle == null) return
 

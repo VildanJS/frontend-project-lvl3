@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { type State } from '@/types'
-import { parser } from '@/utils/parser'
+import { parseXmlData } from '@/utils/parseXmlData'
 import _ from 'lodash'
 
 export const sendRequestWithTimeout = (url: string, delay: number = 5000, state: State): NodeJS.Timeout => {
@@ -14,7 +14,7 @@ export const sendRequestWithTimeout = (url: string, delay: number = 5000, state:
   let timerId = setTimeout(() => {
     request(url)
       .then((contents) => {
-        const [, posts] = parser(contents)
+        const [, posts] = parseXmlData(contents)
         const diffPosts = _.differenceWith(posts, state.posts, _.isEqual);
         if(diffPosts.length > 0) state.posts.unshift(...diffPosts)
         clearInterval(timerId)
@@ -25,4 +25,3 @@ export const sendRequestWithTimeout = (url: string, delay: number = 5000, state:
 
   return timerId
 }
-

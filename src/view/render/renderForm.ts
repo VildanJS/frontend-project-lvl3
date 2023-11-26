@@ -1,17 +1,17 @@
-import { type State } from '@/types'
+import { type Elements } from '@/types'
 import { type i18n } from 'i18next'
 
 export const renderForm = (
     value: boolean,
     i18n: i18n,
-    state: State,
+    elements: Elements,
     path: string,
 ): void => {
     const {
         root: formElement,
         input: inputElement,
         addButton: submitButton,
-    } = state.ui.elements.form
+    } = elements.form
 
     if (formElement === null || inputElement === null || submitButton === null)
         return

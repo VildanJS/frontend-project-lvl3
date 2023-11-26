@@ -1,4 +1,4 @@
-import { type AxiosResponse } from 'axios'
+import { v4 as uuidv4 } from 'uuid';
 
 export interface Post {
     fidLink?: string
@@ -14,10 +14,8 @@ export interface Feed {
     description?: string
 }
 
-export const parser = (contents: string): [Feed, Post[]] => {
+export const parseXmlData = (contents: string): [Feed, Post[]] => {
     const domParser = new DOMParser()
-
-
 
     const xmlData = domParser.parseFromString(contents, 'application/xml')
 
@@ -40,7 +38,7 @@ export const parser = (contents: string): [Feed, Post[]] => {
     itemPosts.forEach((postElement) => {
         const post = {
             fidLink,
-            id: postElement.querySelector('guid')?.textContent?.trim(),
+            id: uuidv4(),
             title: postElement.querySelector('title')?.textContent?.trim(),
             description: postElement.querySelector('description')?.textContent?.trim(),
             link: postElement.querySelector('link')?.textContent?.trim(),

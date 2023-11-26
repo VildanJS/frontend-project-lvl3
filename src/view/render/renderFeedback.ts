@@ -3,14 +3,14 @@ import {
     type NetworkErrors,
     type ValidationErrors,
 } from '@/view/render/updateContent'
-import { type State } from '@/types'
+import { type Elements } from '@/types'
 
 export const renderFeedback = (
     value: ValidationErrors | NetworkErrors,
     i18n: i18n,
-    state: State,
+    elements: Elements,
 ): void => {
-    const { feedback } = state.ui.elements
+    const { feedback } = elements
 
     if (feedback === null) return
 

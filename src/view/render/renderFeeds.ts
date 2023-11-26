@@ -1,10 +1,10 @@
-import { type Feed } from '@/utils/parser'
+import { type Feed } from 'utils/parseXmlData'
 import { type i18n } from 'i18next'
-import { type State } from '@/types'
+import { type Elements } from '@/types'
 
-export const renderFeeds = (feeds: Feed[], i18n: i18n, state: State): void => {
+export const renderFeeds = (feeds: Feed[], i18n: i18n, elements: Elements): void => {
     if (feeds.length === 0) return
-    const feedsElement = state.ui.elements.feeds
+    const feedsElement = elements.feeds
     if (feedsElement != null) feedsElement.innerHTML = ''
 
     const headingElement = document.createElement('h2')

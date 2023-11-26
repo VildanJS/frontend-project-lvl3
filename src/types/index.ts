@@ -1,4 +1,4 @@
-import { type Feed, type Post } from '@/utils/parser'
+import { type Feed, type Post } from 'utils/parseXmlData'
 import { type ValidationErrors, type NetworkErrors } from '@/view/render/updateContent'
 
 export interface Data {
@@ -15,23 +15,6 @@ export interface Status {
 }
 
 interface Ui {
-    elements: {
-        posts: HTMLDivElement | null
-        feeds: HTMLDivElement | null
-        i18n: NodeListOf<Element> | null
-        form: {
-            root:  HTMLFormElement | null
-            input: HTMLInputElement | null
-            addButton: HTMLButtonElement | null,
-        },
-        feedback: HTMLParagraphElement | null
-        modal: {
-            root: HTMLDivElement | null
-            title: HTMLHeadingElement | null
-            body: HTMLParagraphElement | null
-            link: HTMLAnchorElement | null
-        }
-    }
     lng: 'ru' | 'en'
     form: {
         isValid: boolean
@@ -39,6 +22,24 @@ interface Ui {
     }
 
     feedback: ValidationErrors | NetworkErrors
+}
+
+export interface Elements {
+    posts: HTMLDivElement | null
+    feeds: HTMLDivElement | null
+    i18n: NodeListOf<Element> | null
+    form: {
+        root:  HTMLFormElement | null
+        input: HTMLInputElement | null
+        addButton: HTMLButtonElement | null,
+    },
+    feedback: HTMLParagraphElement | null
+    modal: {
+        root: HTMLDivElement | null
+        title: HTMLHeadingElement | null
+        body: HTMLParagraphElement | null
+        link: HTMLAnchorElement | null
+    }
 }
 
 export interface State {

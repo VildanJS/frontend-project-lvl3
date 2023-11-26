@@ -1,11 +1,11 @@
 import { type i18n } from 'i18next'
-import { type Post } from '@/utils/parser'
+import { type Post } from 'utils/parseXmlData'
 import { renderModal } from '@/view/render/renderModal'
-import { type State } from '@/types'
+import { type Elements } from '@/types'
 
-export const renderPosts = (posts: Post[], i18n: i18n, state: State): void => {
+export const renderPosts = (posts: Post[], i18n: i18n, elements: Elements): void => {
     if (posts.length === 0) return
-    const { posts: postsElement } = state.ui.elements
+    const { posts: postsElement } = elements
     if (postsElement != null) postsElement.innerHTML = ''
     const headingElement = document.createElement('h2')
     headingElement.setAttribute('data-i18n', 'posts')
@@ -50,7 +50,7 @@ export const renderPosts = (posts: Post[], i18n: i18n, state: State): void => {
         buttonElement.setAttribute('data-bs-target', '#modal')
         buttonElement.addEventListener('click', (e) => {
             e.preventDefault()
-            renderModal(post, state)
+            renderModal(post, elements)
             linkElement.classList.remove('fw-bold')
             linkElement.classList.add('fw-normal', 'link-secondary')
         })
